@@ -1,6 +1,17 @@
 <h1><%= "Edit #{@user.username}" %></h1>
 
-<%= form_with model: @user do |f| %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h3> <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved: </h3>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @user, local: true do |f| %>
     <div class="label-input-pair">
         <%= f.label :username %>
         <%= f.text_field :username %>
