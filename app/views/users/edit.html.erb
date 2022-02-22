@@ -1,0 +1,20 @@
+<h1><%= "Edit #{@user.username}" %></h1>
+
+<%= form_with model: @user do |f| %>
+    <div class="label-input-pair">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+    </div>
+    <div class="label-input-pair">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </div>
+    <div class="label-input-pair">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
+    <%= f.submit %>
+<% end %>
+
+
+
